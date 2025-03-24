@@ -1,2 +1,5 @@
-<h1>Ласкаво просимо до HeroHabit!</h1>
-<p>Це головна сторінка вашого додатку.</p>
+<app-header></app-header>
+<div class="container">
+  <app-sidebar (contentChange)="updateContent($event)"></app-sidebar>
+  <app-content [content]="contentText"></app-content>
+</div>
