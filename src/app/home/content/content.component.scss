@@ -1,0 +1,18 @@
+ul{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+}
+
+li{
+  padding: 10px 15px;
+  background-color: #2ab4ef;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 100px;
+}

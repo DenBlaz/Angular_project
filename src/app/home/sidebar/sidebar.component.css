@@ -1,0 +1,28 @@
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  margin: 10px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ccc;
+}
+
+/*# sourceMappingURL=sidebar.component.css.map */

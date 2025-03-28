@@ -1,0 +1,10 @@
+<button (click)="toggleSidebar()">Перемкнути бокове меню</button>
+<button (click)="changeContent('Апельсинка')">Показати більше товарів</button>
+
+<nav *ngIf="isSidebarVisible">
+  <ul>
+    <li><a routerLink="/dashboard">Dashboard</a></li>
+    <li><a routerLink="/profile">Profile</a></li>
+    <li><a routerLink="/settings">Settings</a></li>
+  </ul>
+</nav>
