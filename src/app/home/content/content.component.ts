@@ -1,8 +1,7 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../api.service';
 import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-content',
@@ -27,12 +26,7 @@ export class ContentComponent implements OnInit {
   private apiService = inject(ApiService);
 
   ngOnInit(): void {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      const stored = localStorage.getItem('userPosts');
-      if (stored) {
-        this.data = JSON.parse(stored);
-      }
-    }
+    this.fetchData(); // Завантажуємо дані з API при ініціалізації
   }
 
   fetchData(): void {
@@ -50,15 +44,17 @@ export class ContentComponent implements OnInit {
   submitForm(): void {
     const newEntry = { ...this.newData };
 
-    this.data.unshift(newEntry); // додаємо новий запис на початок
-
-    if (typeof window !== 'undefined' && window.localStorage) {
-      localStorage.setItem('userPosts', JSON.stringify(this.data));
-    }
-
-    this.postSuccess = true;
-    this.error = '';
-    this.newData = { title: '', body: '' };
+    // Надсилаємо дані на сервер
+    this.apiService.postData(newEntry).subscribe({
+      next: () => {
+        this.data.unshift(newEntry); // Додаємо новий запис на початок
+        this.postSuccess = true;
+        this.error = '';
+        this.newData = { title: '', body: '' };
+      },
+      error: (err) => {
+        this.error = err.message;
+      }
+    });
   }
-
 }

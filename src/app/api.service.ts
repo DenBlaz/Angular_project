@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/posts'; // приклад API
+  private apiUrl = 'http://localhost:3000/api/data'; // Шлях до твого серверу
 
   constructor(private http: HttpClient) {}
 
